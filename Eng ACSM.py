@@ -265,7 +265,7 @@ b_key_names = {
     "s_1": "Pain/discomfort from ischemia", "s_2": "Shortness of breath", "s_3": "Dizziness or syncope",
     "s_4": "Orthopnea/paroxysmal nocturnal dyspnea", "s_5": "Ankle edema", "s_6": "Palpitations or tachycardia",
     "s_7": "Intermittent claudication", "s_8": "Known heart murmur", "s_9": "Unusual fatigue or shortness of breath",
-    "d_cardio": "Known CV disease", "d_metabolic": "Known metabolic disease", "d_renal": "Known renal disease",
+    "d_cardio": "Known cardiovascular disease", "d_metabolic": "Known metabolic disease", "d_renal": "Known renal disease",
     "is_active": "Current Exercise Habits"
 }
 
@@ -418,10 +418,10 @@ def tab_b_acsm(b_class):
     
     st.markdown("---")
     st.subheader("Known Medical Conditions")
-    render_inline_question("Known CV disease", "d_cardio", check_error=check_err)
+    render_inline_question("Known cardiovascular disease (e.g., coronary artery disease, heart attack, stroke, heart failure, arrhythmia)", "d_cardio", check_error=check_err)
     st.markdown("<div style='height: 15px;'></div>", unsafe_allow_html=True)
     
-    render_inline_question("Known metabolic disease", "d_metabolic", check_error=check_err)
+    render_inline_question("Known metabolic disease (e.g., diabetes, thyroid disorders)", "d_metabolic", check_error=check_err)
     render_inline_question("Known renal disease", "d_renal", check_error=check_err)
 
     st.markdown("---")
@@ -509,14 +509,14 @@ def tab_d_thr(current_class):
             if symptoms >= 1:
                 reasons.append("Form B ≥ 1")
             if has_disease and not is_active:
-                reasons.append("Known CV, metabolic or renal disease without regular exercise")
+                reasons.append("Known cardiovascular, metabolic or renal disease without regular exercise")
         elif current_class == "Class II":
             if has_disease and is_active and symptoms == 0:
-                reasons.append("Known CV, metabolic or renal disease with regular exercise & Form B = 0")
+                reasons.append("Known cardiovascular, metabolic or renal disease with regular exercise & Form B = 0")
             if parq_score > 0:
                 reasons.append("Form A (PAR-Q) ≥ 1")
         elif current_class == "Class I":
-            reasons.append("No Known CV, metabolic or renal disease & Form A & Form B = 0")
+            reasons.append("No Known cardiovascular, metabolic or renal disease & Form A & Form B = 0")
             
         if reasons:
             if current_class == "Class III":
