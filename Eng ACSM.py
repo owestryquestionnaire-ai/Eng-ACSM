@@ -8,14 +8,6 @@ def inject_custom_css():
         """
         <style>
         /* =========================================================
-           🖥️ WHITE BACKGROUND OVERRIDE
-           ========================================================= */
-        /* Forces the main app container and sidebar to be pure white */
-        [data-testid="stAppViewContainer"], .stApp, [data-testid="stSidebar"] {
-            background-color: #ffffff !important;
-        }
-
-        /* =========================================================
            🖥️ HEADER & SPACING FIX
            ========================================================= */
         /* Increased padding-top to 3.5rem to clear the header without hiding the title */
