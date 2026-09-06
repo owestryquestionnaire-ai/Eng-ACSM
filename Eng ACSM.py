@@ -411,8 +411,7 @@ def tab_b_acsm(b_class):
     ]
     for i, q in enumerate(s_items, 1):
         render_inline_question(q, f"s_{i}", check_error=check_err)
-        if i == 1:
-            st.markdown("<div style='height: 15px;'></div>", unsafe_allow_html=True)
+        st.markdown("<div style='height: 15px;'></div>", unsafe_allow_html=True)
         
     st.info("*Note: Patients with the above symptoms may not be fit to perform moderate to vigorous intensity cardiopulmonary fitness training. For details, please refer to your doctor or physiotherapist")
     
@@ -422,6 +421,8 @@ def tab_b_acsm(b_class):
     st.markdown("<div style='height: 15px;'></div>", unsafe_allow_html=True)
     
     render_inline_question("Known metabolic disease (e.g., diabetes, thyroid disorders)", "d_metabolic", check_error=check_err)
+    st.markdown("<div style='height: 15px;'></div>", unsafe_allow_html=True)
+    
     render_inline_question("Known renal disease", "d_renal", check_error=check_err)
 
     st.markdown("---")
@@ -456,19 +457,29 @@ def tab_a_parq():
     st.write("Please select \"Yes\" or \"No\":")
     
     render_inline_question("1. Has your doctor ever said that you have a heart condition or high blood pressure?", "parq_1", check_error=check_err)
+    st.markdown("<div style='height: 15px;'></div>", unsafe_allow_html=True)
+    
     render_inline_question("2. Do you feel pain in your chest at rest, during your daily activities of living or when you do physical activity?", "parq_2", check_error=check_err)
+    st.markdown("<div style='height: 15px;'></div>", unsafe_allow_html=True)
+    
     render_inline_question("3. Do you lose your balance because of dizziness or have you ever lost consciousness in the last 12 months?", "parq_3", check_error=check_err)
+    st.markdown("<div style='height: 15px;'></div>", unsafe_allow_html=True)
     
     render_inline_question("4. Have you ever been diagnosed with another medical chronic condition (other than heart disease or high blood pressure)?", "parq_4", check_error=check_err)
     if st.session_state.data.get("parq_4") == "Yes":
         st.text_input("Please list here:", value=st.session_state.data.get("parq_4_text", ""), key="parq_4_text", on_change=update_val, args=("parq_4_text",))
+    st.markdown("<div style='height: 15px;'></div>", unsafe_allow_html=True)
         
     render_inline_question("5. Are you currently taking prescribed medications for a chronic medical condition?", "parq_5", check_error=check_err)
     if st.session_state.data.get("parq_5") == "Yes":
         st.text_input("Please list here:", value=st.session_state.data.get("parq_5_text", ""), key="parq_5_text", on_change=update_val, args=("parq_5_text",))
+    st.markdown("<div style='height: 15px;'></div>", unsafe_allow_html=True)
         
     render_inline_question("6. Do you currently have (or have had within the past 12 months) a bone or joint, or soft tissue (muscle, ligament, or tendon) problem that could be made worse by becoming more physically active?", "parq_6", check_error=check_err)
+    st.markdown("<div style='height: 15px;'></div>", unsafe_allow_html=True)
+    
     render_inline_question("7. Has your doctor ever said that you should only do medically supervised physical activity?", "parq_7", check_error=check_err)
+    st.markdown("<div style='height: 15px;'></div>", unsafe_allow_html=True)
 
     st.markdown("---")
     
